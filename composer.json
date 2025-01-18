@@ -1,0 +1,74 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2.5|^8.2.4",
+        "barryvdh/laravel-dompdf": "*",
+        "fideloper/proxy": "*",
+        "fruitcake/laravel-cors": "*",
+        "guzzlehttp/guzzle": "*",
+        "laravel/framework": "*",
+        "laravel/socialite": "*",
+        "laravel/tinker": "*",
+        "laravel/ui": "*",
+        "pusher/pusher-php-server": "*",
+        "razorpay/razorpay": "^2.9",
+        "spatie/laravel-newsletter": "*",
+        "srmklive/paypal": "*",
+        "unisharp/laravel-filemanager": "*"
+    },
+    "require-dev": {
+        "facade/ignition": "*",
+        "fzaninotto/faker": "*",
+        "mockery/mockery": "*",
+        "nunomaduro/collision": "*",
+        "phpunit/phpunit": "*"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files":[
+            "app/Http/Helpers.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}
